@@ -1,0 +1,9 @@
+craft_cargoB.glb
+  From: Kenney Space Kit 2.0, https://kenney.nl/assets/space-kit
+  File in kit: Models/GLTF format/craft_cargoB.glb
+  Licence: CC0 1.0 (see kenney-space-kit-LICENSE.txt)
+
+ambient.mp3
+  "Outer Space Loop" by wipics, https://opengameart.org/content/outer-space-loop
+  Original file name: outer_space_2.mp3
+  Licence: CC0 1.0
