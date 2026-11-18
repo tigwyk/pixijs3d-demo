@@ -4,7 +4,7 @@ A small solo tech demo: one Ship, alone in a star system, in the spirit of EVE O
 
 https://github.com/user-attachments/assets/13aed719-ef1b-4165-911c-8875b710e009
 
-*Watch the 27-second teaser on [YouTube](https://youtu.be/4mlIAYnFjA0).*
+*Watch the 27-second teaser on [YouTube](https://youtu.be/qP61OCblEG0).*
 
 Built with the official [`@pixi/3d`](https://pixijs.com/) package on PixiJS 8. There is no combat, no score and no goal. You fly, you look, you Warp.
 
