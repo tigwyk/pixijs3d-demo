@@ -316,8 +316,9 @@ app.ticker.add((ticker) => {
   tunnel.visible = k > 0;
   if (tunnel.visible) {
     for (const streak of tunnel.children) {
-      streak.position.z += STREAK_SPEED * k * dt;
-      if (streak.position.z > STREAK_SPAN) streak.position.z -= STREAK_SPAN * 2;
+      // The Ship's nose is its local +z, so streaks rush toward -z: from ahead, past the Ship, out behind.
+      streak.position.z -= STREAK_SPEED * k * dt;
+      if (streak.position.z < -STREAK_SPAN) streak.position.z += STREAK_SPAN * 2;
       streak.scale.z = 1 + STREAK_LENGTH * k;
     }
   }
