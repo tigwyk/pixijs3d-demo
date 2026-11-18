@@ -1,3 +1,8 @@
 node_modules
 dist
 .impeccable
+teaser/renders
+teaser/.hyperframes
+teaser/.thumbnails
+teaser/.transcode-cache
+teaser/.waveform-cache

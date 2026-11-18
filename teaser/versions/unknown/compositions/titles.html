@@ -1,0 +1,28 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; font-family: "IBM Plex Mono", monospace; color: #ffb454; }
+    .line { position: absolute; left: 150px; white-space: nowrap; text-transform: uppercase; }
+    .line span { display: inline-block; }
+    #t-someone, #t-you { top: 760px; font-size: 62px; font-weight: 500; letter-spacing: 0.08em; }
+    #t-name { top: 690px; font-size: 118px; font-weight: 700; letter-spacing: 0.1em; }
+    #t-url { top: 850px; font-size: 40px; font-weight: 400; letter-spacing: 0.04em; text-transform: none; }
+  </style>
+  <div id="root" data-composition-id="titles" data-width="1920" data-height="1080">
+    <div id="t-someone" class="line clip" data-start="12.6" data-duration="2.4" data-track-index="0"><span>Sometimes there is someone</span></div>
+    <div id="t-you" class="line clip" data-start="23.6" data-duration="3" data-track-index="0"><span>Mostly there is you</span></div>
+    <div id="t-name" class="line clip" data-start="27" data-duration="3" data-track-index="0"><span>Space Demo</span></div>
+    <div id="t-url" class="line clip" data-start="27.6" data-duration="2.4" data-track-index="1"><span>github.com/tigwyk/pixiejs-demo</span></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // The HUD prints its lines: each arrives a character at a time, then holds still.
+    const type = (sel, chars, at, seconds) =>
+      tl.fromTo(sel + " span", { clipPath: "inset(0 100% 0 0)" },
+        { clipPath: "inset(0 0% 0 0)", duration: seconds, ease: "steps(" + chars + ")" }, at);
+    type("#t-someone", 26, 12.6, 0.9);
+    type("#t-you", 19, 23.6, 0.7);
+    type("#t-name", 10, 27, 0.5);
+    type("#t-url", 30, 27.6, 0.7);
+    window.__timelines["titles"] = tl;
+  </script>
+</template>

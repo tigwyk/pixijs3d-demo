@@ -1,0 +1,11 @@
+{
+  "name": "teaser",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "set TEMP=D:/hyperframes/tmp&& set TMP=D:/hyperframes/tmp&& npx --yes hyperframes@0.9.65 preview",
+    "check": "set TEMP=D:/hyperframes/tmp&& set TMP=D:/hyperframes/tmp&& npx --yes hyperframes@0.9.65 check",
+    "render": "set TEMP=D:/hyperframes/tmp&& set TMP=D:/hyperframes/tmp&& npx --yes hyperframes@0.9.65 render",
+    "publish": "set TEMP=D:/hyperframes/tmp&& set TMP=D:/hyperframes/tmp&& npx --yes hyperframes@0.9.65 publish"
+  }
+}

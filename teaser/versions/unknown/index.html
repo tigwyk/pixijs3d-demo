@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #000; }
+      #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: #000; }
+      .cam { position: absolute; inset: 0; }
+      .cam video { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: contain; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="30" data-width="1920" data-height="1080">
+      <!-- One recorded take of the Demo (assets/take.mp4), cut into five shots. Each .cam is the shot's camera. -->
+      <div id="cam1" class="cam" data-layout-allow-overflow>
+        <video id="shot1" class="clip" src="assets/take.mp4" muted playsinline
+          data-start="0" data-duration="6" data-media-start="3.5" data-track-index="0" style="z-index: 1"></video>
+      </div>
+      <div id="cam2" class="cam" data-layout-allow-overflow>
+        <video id="shot2" class="clip" src="assets/take.mp4" muted playsinline
+          data-start="6" data-duration="5" data-media-start="9.5" data-track-index="0" style="z-index: 2"></video>
+      </div>
+      <div id="cam3" class="cam" data-layout-allow-overflow>
+        <video id="shot3" class="clip" src="assets/take.mp4" muted playsinline
+          data-start="11" data-duration="4" data-media-start="15" data-track-index="0" style="z-index: 3"></video>
+      </div>
+      <div id="cam4" class="cam">
+        <video id="shot4" class="clip" src="assets/take.mp4" muted playsinline
+          data-start="15" data-duration="2.5" data-media-start="20" data-track-index="0" style="z-index: 4"></video>
+      </div>
+      <div id="cam5" class="cam">
+        <video id="shot5" class="clip" src="assets/take.mp4" muted playsinline
+          data-start="17.5" data-duration="12.5" data-media-start="24" data-track-index="0" style="z-index: 5"></video>
+      </div>
+
+      <div id="titles" data-composition-id="titles" data-composition-src="compositions/titles.html"
+        data-start="0" data-duration="30" data-track-index="1" data-track-kind="graphics"
+        data-width="1920" data-height="1080" style="z-index: 10"></div>
+
+      <audio id="bed" src="assets/ambient.mp3" data-start="0" data-duration="30" data-track-index="2"
+        data-volume="1" data-fade-in="1.5" data-fade-out="2.5"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      // Shot 1 opens tight on the Overview (top right), then pulls back to the whole frame.
+      tl.fromTo("#cam1", { scale: 2.2, transformOrigin: "100% 0%" }, { scale: 2.2, duration: 3.2, ease: "none" }, 0);
+      tl.to("#cam1", { scale: 1, duration: 1.1, ease: "power3.inOut" }, 3.2);
+      // Shot 2: a slow push toward the selected row and the Ship while nothing answers.
+      tl.fromTo("#cam2", { scale: 1, transformOrigin: "86% 26%" }, { scale: 1.05, duration: 5, ease: "none" }, 6);
+      // Shot 3 eases back out as the row disappears. The push is small so the HUD is never cropped.
+      tl.fromTo("#cam3", { scale: 1.05, transformOrigin: "86% 26%" }, { scale: 1, duration: 4, ease: "power2.inOut" }, 11);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
