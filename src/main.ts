@@ -17,7 +17,8 @@ await app.init({
   resizeTo: window,
   antialias: true,
   background: 0x000000,
-  resolution: Math.min(window.devicePixelRatio, 2),
+  // ?res=3 in a 640x360 window gives a 1080p frame with a HUD three times the size, for recording
+  resolution: Number(new URLSearchParams(location.search).get('res')) || Math.min(window.devicePixelRatio, 2),
   autoDensity: true,
 });
 document.body.appendChild(app.canvas);
@@ -359,4 +360,4 @@ const orbit = new OrbitCamera({
 });
 
 // Dev only: a handle for poking at the Demo from the browser console, e.g. demo.startCrossingLight().
-if (import.meta.env.DEV) Object.assign(window, { demo: { sim, view3d, crossingLight, startCrossingLight } });
+if (import.meta.env.DEV) Object.assign(window, { demo: { sim, view3d, hud, orbit, crossingLight, startCrossingLight } });
