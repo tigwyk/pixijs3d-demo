@@ -2,9 +2,7 @@
 
 A small solo tech demo: one Ship, alone in a star system, in the spirit of EVE Online. It is meant to feel cold and empty, and at the same time cozy and exciting.
 
-[![Watch the teaser: the Ship arriving at Lantern Station](https://github.com/user-attachments/assets/75bc7f85-c076-4cb3-8bd3-2e9edf8146d9)]
-
-
+https://github.com/user-attachments/assets/75bc7f85-c076-4cb3-8bd3-2e9edf8146d9
 
 *Watch the 27-second teaser on [YouTube](https://youtu.be/4mlIAYnFjA0).*
 
